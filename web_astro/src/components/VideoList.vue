@@ -6,8 +6,8 @@
         <img :src="video.thumbnailUrl" :alt="video.title" class="video-thumbnail mb-2">
         <div class="video-title mb-2">{{ video.title }}</div>
         <div class="video-buttons">
-          <a :href="`practice?id=${video.id}`" class="btn btn-primary m-1">練習モード</a>
-          <a :href="`scoring?id=${video.id}`" class="btn btn-success m-1">採点モード</a>
+          <a :href="'practice/' + video.id" class="btn btn-primary m-1">練習モード</a>
+          <a :href="'scoring/' + video.id" class="btn btn-success m-1">採点モード</a>
         </div>
       </div>
     </div>
@@ -37,11 +37,17 @@ interface VideoData {
 const props = defineProps<Props>();
 
 const videoItems = computed<VideoItem[]>(() => {
-  return props.list.map(id => ({
-    id,
-    title: props.video_lists[id].title,
-    thumbnailUrl: `/Uplight/web_astro${props.video_lists[id].thumbnailPath}`
-  }));
+  console.log("List:", props.list);
+  console.log("Video lists:", props.video_lists);
+  return props.list.map(id => {
+    console.log("Processing id:", id);
+    console.log("Video data for id:", props.video_lists[id]);
+    return {
+      id,
+      title: props.video_lists[id].title,
+      thumbnailUrl: `/Uplight/web_astro${props.video_lists[id].thumbnailPath}`
+    };
+  });
 });
 </script>
 

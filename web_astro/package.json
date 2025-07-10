@@ -11,8 +11,10 @@
   "dependencies": {
     "@astrojs/vue": "^5.1.0",
     "@popperjs/core": "^2.11.8",
+    "@techstark/opencv-js": "^4.11.0-release.1",
     "astro": "^5.11.0",
     "bootstrap": "^5.3.7",
+    "video.js": "^8.23.3",
     "vue": "^3.5.17"
   },
   "devDependencies": {
