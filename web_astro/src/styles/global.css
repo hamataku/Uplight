@@ -1,0 +1,12 @@
+/* Bootstrap imports */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Import Video.js CSS */
+@import 'https://vjs.zencdn.net/8.0.4/video-js.css';
+
+/* Custom styles from original project */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

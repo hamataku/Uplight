@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import VideoList from '../components/VideoList.vue';
+import { videos } from '../data/videos';
+
+const videoLists = Object.fromEntries(
+  videos.map(video => [video.id, {
+    title: video.title,
+    thumbnailPath: video.thumbnailPath
+  }])
+);
+
+const beginnerList = videos
+  .filter(video => video.difficulty === 'beginner')
+  .map(video => video.id);
+
+const intermediateList = videos
+  .filter(video => video.difficulty === 'intermediate')
+  .map(video => video.id);
+
+const advancedList = videos
+  .filter(video => video.difficulty === 'advanced')
+  .map(video => video.id);
+---
+
+<Layout title="Uplight">
+  <Navbar />
+  <div class="container">
+    <div class="text-center m-4">
+      <h2 class="pt-2 border-bottom border-primary border-2 my-2 mx-auto px-4" style="width: fit-content;">難易度別に練習する</h2>
+      <VideoList list={beginnerList} video_lists={videoLists} title="かんたん" client:load />
+      <VideoList list={intermediateList} video_lists={videoLists} title="ふつう" client:load />
+      <VideoList list={advancedList} video_lists={videoLists} title="むずかしい" client:load />
+    </div>
+
+    <div class="text-center m-4">
+      <h2 class="pt-2 border-bottom border-primary border-2 my-2 mx-auto px-4" style="width: fit-content;">動画をアップロードして演奏する</h2>
+      <a href="practice/custom" class="btn btn-primary m-1">練習モード</a>
+      <a href="scoring/custom" class="btn btn-success m-1">採点モード</a>
+    </div>
+
+    <div class="text-center m-4">
+      <h2 class="pt-2 border-bottom border-primary border-2 my-2 mx-auto px-4" style="width: fit-content;">オンラインでセッションする</h2>
+      <a href="video" class="btn btn-primary m-1">参加する</a>
+    </div>
+  </div>
+  <Footer />
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="オンラインセッション - Uplight">
+  <Navbar />
+  <div class="container">
+    <div class="text-center m-4">
+      <h2 class="pt-2 border-bottom border-primary border-2 my-2 mx-auto px-4" style="width: fit-content;">オンラインセッション</h2>
+      <div id="online-session">
+        <!-- オンラインセッション機能のコンポーネントはJavaScriptの依存関係が多いため、別途実装が必要 -->
+        <p class="text-center">オンラインセッション機能は開発中です。</p>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Layout>
+
+<style>
+  #online-session {
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 1rem;
+  }
+</style>

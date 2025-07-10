@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "web-astro",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.0",
-    "@vitejs/plugin-vue": "^5.2.4",
+    "@popperjs/core": "^2.11.8",
     "astro": "^5.11.0",
-    "midi-parser-js": "^4.0.4",
-    "tone": "^15.1.22",
+    "bootstrap": "^5.3.7",
     "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@types/video.js": "^7.3.58"
   }
 }
